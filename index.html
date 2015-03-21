@@ -24,13 +24,13 @@
 		    	<div>
 		    		<!-- ko with: queryModel -->
 		    		
-		    		<textarea data-bind="value: query"></textarea>
+		    		<textarea class="form-control col-md-12" rows="7" data-bind="value: query"></textarea>
 
 		    		<!-- /ko -->
 		    	</div>
 
-		    	<br/>
-		    	<button class="btn btn-default" data-bind="click: run">Run</button>
+
+		    	<button class="btn btn-default pull-right" style="margin-top: 10pt; margin-bottom: 10pt" data-bind="click: run">Run</button>
 
 		    	<div>
 		    		<!-- ko with: queryRestultModel -->
