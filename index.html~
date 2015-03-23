@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>INFSCI 2711 Query Project</title>
+
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+</head>
+<body style="margin: 60px;">
+	<div class="row">
+
+		<div class="col-md-12">
+
+			<div class="page-header">
+			  <h1>This is INFSCI 2711 Query project <br/><small>(backed by PrestoDB)</small></h1>
+			</div>
+
+			<div id="queryContainer">
+				<h3>
+					Write your query below and hit Run button to execute it.
+				</h3> 
+	
+				<div>
+					<!-- ko with: queryModel -->
+					
+					<textarea class="form-control col-md-12" rows="7" data-bind="value: query"></textarea>
+	
+					<!-- /ko -->
+				</div>
+	
+	
+				<button class="btn btn-primary pull-right" style="margin-top: 10pt; margin-bottom: 10pt" data-bind="click: run">Run</button>
+	
+				<div>
+					<!-- ko with: queryRestultModel -->
+	
+						<!-- ko if: data() -->
+	
+						<table class="table table-striped table-hover">
+	
+							<tr>
+								<!-- ko foreach: data().schema.columnNames.columnNames -->
+								
+								<th data-bind="text: $data">
+								</th>
+	
+								<!-- /ko -->
+							</tr>
+	
+	
+								<!-- ko foreach: data().data.data -->
+								
+								<tr>
+	
+									<!-- ko foreach: $data.row.data -->
+	
+									<td data-bind="text: $data">
+	
+									</td>
+	
+									<!-- /ko -->
+								</tr>
+	
+								<!-- /ko -->
+							
+							
+						</table>
+	
+						<!-- /ko -->
+	
+					<!-- /ko -->
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+	
+    <script type="text/javascript" src="javascripts/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="javascripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="javascripts/knockout-3.2.0.js"></script>
+    <script type="text/javascript" src="javascripts/knockout_models/global.js"></script>
+    <script type="text/javascript" src="javascripts/knockout_models/queryViewModel.js"></script>
+</body>
+</html>
