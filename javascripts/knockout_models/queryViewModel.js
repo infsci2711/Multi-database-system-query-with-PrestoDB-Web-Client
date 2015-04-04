@@ -30,7 +30,8 @@ function QueryViewModel() {
                 //debugger;
             },
             error: function(data) {
-                alert("Something went wrong while running query. Please try again.");
+                var err=data.responseJSON;
+		alert("Oops, there 's an error.\n\nerror type:   "+err.error+"\n\nerror details:  "+err.message);
             }
         });
 	};
