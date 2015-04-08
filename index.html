@@ -16,6 +16,133 @@
 			  <h1>This is INFSCI 2711 Query project <br/><small>(backed by PrestoDB)</small></h1>
 			</div>
 
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content" id="modal-contents">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+							<h4 class="modal-title" id="myModalLabel">Please Enter New Datasource Information</h4>
+						</div>
+
+						<div class="modal-body">
+							<form class="form-horizontal">
+								
+								<div class="form-group">
+									<label class="control-label col-sm-4" for="ipaddr">IP Address(host):</label>
+									<div class="col-sm-8">
+										<input class="form-control" id="ipaddr" data-bind="value:  ip">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-4" for="port">Port:</label>
+									<div class="col-sm-8">
+										<input class="form-control" id="port" data-bind="value:  port">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-4" for="username">DB Username:</label>
+									<div class="col-sm-8">
+										<input class="form-control" id="username" data-bind="value:  username">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-4" for="password">Password:</label>
+									<div class="col-sm-8">
+										<input class="form-control" id="password" data-bind="value:  password" type="password">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-4" for="daabasename">Database Name:</label>
+									<div class="col-sm-8">
+										<input class="form-control" id="databasename" data-bind="value:  dbname">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-4" for="dbtitle">Title:</label>
+									<div class="col-sm-8">
+										<input class="form-control" id="dbtitle" data-bind="value:  title">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-4" for="dbdescription">Description:</label>
+									<div class="col-sm-8">
+										<input class="form-control" id="dbdescription" data-bind="value:  description">
+									</div>
+								</div>
+								
+							</form>
+						</div>
+						<div class="modal-footer">
+							<label id="show-success"></label>
+							<button type="button" class="btn btn-default" data-dismiss="modal">close</button>
+							<button type="button" class="btn btn-success" data-bind="click: save">Submit</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id = "datasourcesContainer">
+				<div class="row">
+					<div class="col-md-3">
+						<select class="form-control"  size=13 data-bind="options: datasources, optionsText: 'databaseName', value: selectedDatasource"></select>
+
+						
+					</div>
+
+					<!-- ko with: selectedDatasource -->
+
+					<div class="col-md-3">
+						<table class="table table-hover">
+							<tr>
+								<td>did</td>
+								<td  data-bind="text: did"></span></td>
+							<tr/>
+							<tr>
+								<td>ip</td>
+								<td  data-bind="text: ip"></span></td>
+							<tr/>
+							<tr>
+								<td>port</td>
+								<td  data-bind="text: port"></span></td>
+							<tr/>
+							<tr>
+								<td>databaseName</td>
+								<td  data-bind="text: databaseName"></span></td>
+							<tr/>
+							<tr>
+								<td>username</td>
+								<td  data-bind="text: username"></span></td>
+							<tr/>
+							<tr>
+								<td>password</td>
+								<td  data-bind="text: password"></span></td>
+							<tr/>
+							<tr>
+								<td>dbType</td>
+								<td  data-bind="text: dbType"></span></td>
+							<tr/>
+						</table>
+					</div>
+
+					<!-- /ko -->
+
+					<!-- ko with: selectedDatasource -->
+
+					<div class="col-md-3">
+						
+						<select class="form-control" size=13 data-bind="options: tables, optionsText: 'tableName', value: selectedTable"></select>
+					</div>
+					<div class="col-md-3">
+						<!-- ko with: selectedTable -->
+						<select class="form-control" size=13 data-bind="options: columns, optionsText: 'columnName'"></select>
+
+						<!-- /ko -->
+					</div>
+
+					<!-- /ko -->
+				</div>
+			</div>
+
 			<div id="queryContainer">
 				<h3>
 					Write your query below and hit Run button to execute it.
@@ -24,14 +151,15 @@
 				<div>
 					<!-- ko with: queryModel -->
 					
-					<textarea class="form-control col-md-12" rows="7" data-bind="value: query"></textarea>
+					<textarea id="sqlquery" class="form-control col-md-12" rows="7" data-bind="value:   query"></textarea>
 	
 					<!-- /ko -->
 				</div>
 	
 	
 				<button class="btn btn-primary pull-right" style="margin-top: 10pt; margin-bottom: 10pt" data-bind="click: run">Run</button>
-	
+				<button class="btn btn-info pull-right" style="margin-top: 10pt; margin-bottom: 10pt; margin-right: 5pt;" data-toggle="modal" data-target="#myModal">Save</button>
+				
 				<div>
 					<!-- ko with: queryRestultModel -->
 	
@@ -73,7 +201,7 @@
 				</div>
 
 			</div>
-
+			
 		</div>
 
 	</div>
@@ -83,5 +211,7 @@
     <script type="text/javascript" src="javascripts/knockout-3.2.0.js"></script>
     <script type="text/javascript" src="javascripts/knockout_models/global.js"></script>
     <script type="text/javascript" src="javascripts/knockout_models/queryViewModel.js"></script>
+    <script type="text/javascript" src="javascripts/knockout_models/saveViewModel.js"></script>
+    <script type="text/javascript" src="javascripts/knockout_models/datasourcesView.js"></script>
 </body>
 </html>

@@ -1,1 +1,4 @@
-var restBaseUrl = "http://localhost:7654/";
+var isInDebug = true;
+
+var restBaseUrl = "http://127.0.0.1:7654/";
+var metaStoreGetDataSourcesURL =  "123456/Datasources";
