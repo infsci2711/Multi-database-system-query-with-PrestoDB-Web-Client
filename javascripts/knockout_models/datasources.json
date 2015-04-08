@@ -6,7 +6,7 @@
 		 "DBname": "dbName1",
 		 "username": "username1",
 		 "password": "password1",
-		 "DBtype": "MySQL"
+		 "DBtype": "MySQL",
 		 "tables": [
 		 	{
 		 		"tableName" : "test", 
