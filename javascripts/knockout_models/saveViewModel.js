@@ -3,16 +3,18 @@ function SaveViewModel() {
 
 	self.ip = ko.observable();
                 self.port = ko.observable();
+                self.dbtype=ko.observable
                 self.username = ko.observable();
                 self.password = ko.observable();
                 self.dbname = ko.observable();
                 self.title = ko.observable();
                 self.description = ko.observable();
+                self.tablename = ko.observable();
 
 	self.save = function() {
                     var data = ko.toJS(self);
                     data.query = $("#sqlquery").val();
-
+debugger;
                     $.ajax({
                         url: restBaseUrl + "Query/Save",
                         type: 'Put',
