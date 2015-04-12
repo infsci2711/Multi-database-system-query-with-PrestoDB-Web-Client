@@ -98,7 +98,7 @@
 			<div id = "datasourcesContainer">
 				<div class="row">
 					<div class="col-md-3">
-						<select class="form-control"  size=19 data-bind="options: datasources, optionsText: 'databaseName', value: selectedDatasource"></select>
+						<select class="form-control"  size=16 data-bind="options: datasources, optionsText: 'databaseName', value: selectedDatasource"></select>
 
 						
 					</div>
@@ -108,21 +108,22 @@
 					<div class="col-md-3">
 						<table class="table table-hover">
 							<tr>
-								<td>did</td>
+								<td>Database ID</td>
 								<td  data-bind="text: did"></span></td>
 							<tr/>
 							<tr>
-								<td>ip</td>
+								<td>IP</td>
 								<td  data-bind="text: ip"></span></td>
 							<tr/>
 							<tr>
-								<td>port</td>
+								<td>Port</td>
 								<td  data-bind="text: port"></span></td>
 							<tr/>
 							<tr>
-								<td>databaseName</td>
+								<td>Database Name</td>
 								<td  data-bind="text: databaseName"></span></td>
 							<tr/>
+							<!--
 							<tr>
 								<td>username</td>
 								<td  data-bind="text: username"></span></td>
@@ -131,8 +132,9 @@
 								<td>password</td>
 								<td  data-bind="text: password"></span></td>
 							<tr/>
+						-->
 							<tr>
-								<td>dbType</td>
+								<td>Database Type</td>
 								<td  data-bind="text: dbType"></span></td>
 							<tr/>
 							<tr>
@@ -152,11 +154,11 @@
 
 					<div class="col-md-3">
 						
-						<select class="form-control" size=19 data-bind="options: tables, optionsText: 'tableName', value: selectedTable"></select>
+						<select class="form-control" size=16 data-bind="options: tables, optionsText: 'tableName', value: selectedTable"></select>
 					</div>
 					<div class="col-md-3">
 						<!-- ko with: selectedTable -->
-						<select class="form-control" size=19 data-bind="options: columns, optionsText: 'columnName'"></select>
+						<select class="form-control" size=16 data-bind="options: columns, optionsText: 'columnName'"></select>
 
 						<!-- /ko -->
 					</div>
