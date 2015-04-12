@@ -11,7 +11,7 @@ function TableModel(tableName, columns) {
       self.columns = ko.observableArray(columns);
 }
 
-function DatasourceModel(did, ip, port, databaseName, username, password, DBtype, tables) {
+function DatasourceModel(did, ip, port, databaseName, username, password, DBtype, tables,title,description) {
     var self = this;
 
     self.did = ko.observable(did);
@@ -22,7 +22,8 @@ function DatasourceModel(did, ip, port, databaseName, username, password, DBtype
     self.password = ko.observable(password);
     self.dbType = ko.observable(DBtype);
     self.tables = ko.observableArray(tables);
-
+    self.title = ko.observable(title);
+    self.description = ko.observable(description); 
     self.selectedTable = ko.observable();
 }
 
@@ -68,8 +69,8 @@ debugger;
                         })
 
 debugger;
-                        var datasources = new DatasourceModel(datasource.id,  datasource.IPAddress, datasource.port, datasource.DBname, 
-                            datasource.username, datasource.password,datasource.DBtype, tables);
+                        var datasources = new DatasourceModel(datasource.id,  datasource.ipAddress, datasource.port, datasource.dbName, 
+                            datasource.username, datasource.password,datasource.dbType, tables,datasource.title,datasource.description);
                         self.datasources.push(datasources);
                     })
               }

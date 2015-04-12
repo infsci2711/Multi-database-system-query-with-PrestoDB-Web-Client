@@ -26,7 +26,21 @@
 
 						<div class="modal-body">
 							<form class="form-horizontal">
-								
+
+								<div class="form-group">
+									<label class="control-label col-sm-4" for="tablename">Table Name:</label>
+									<div class="col-sm-8">
+										<input class="form-control" id="tableName" data-bind="value:  tablename">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-4" for="databasetype">Database Type:</label>
+									<div class="col-sm-8">
+										<select class="form-control" id="databasetype" data-bind="value: dbtype">
+											<option>MySQL</option>
+										</select>
+									</div>
+								</div>								
 								<div class="form-group">
 									<label class="control-label col-sm-4" for="ipaddr">IP Address(host):</label>
 									<div class="col-sm-8">
@@ -52,7 +66,7 @@
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="control-label col-sm-4" for="daabasename">Database Name:</label>
+									<label class="control-label col-sm-4" for="databasename">Database Name:</label>
 									<div class="col-sm-8">
 										<input class="form-control" id="databasename" data-bind="value:  dbname">
 									</div>
@@ -84,7 +98,7 @@
 			<div id = "datasourcesContainer">
 				<div class="row">
 					<div class="col-md-3">
-						<select class="form-control"  size=13 data-bind="options: datasources, optionsText: 'databaseName', value: selectedDatasource"></select>
+						<select class="form-control"  size=17 data-bind="options: datasources, optionsText: 'databaseName', value: selectedDatasource"></select>
 
 						
 					</div>
@@ -121,6 +135,14 @@
 								<td>dbType</td>
 								<td  data-bind="text: dbType"></span></td>
 							<tr/>
+							<tr>
+								<td>Title</td>
+								<td  data-bind="text: title"></span></td>
+							<tr/>
+							<tr>
+								<td>Description</td>
+								<td  data-bind="text: description"></span></td>
+							<tr/>							
 						</table>
 					</div>
 
@@ -130,11 +152,11 @@
 
 					<div class="col-md-3">
 						
-						<select class="form-control" size=13 data-bind="options: tables, optionsText: 'tableName', value: selectedTable"></select>
+						<select class="form-control" size=17 data-bind="options: tables, optionsText: 'tableName', value: selectedTable"></select>
 					</div>
 					<div class="col-md-3">
 						<!-- ko with: selectedTable -->
-						<select class="form-control" size=13 data-bind="options: columns, optionsText: 'columnName'"></select>
+						<select class="form-control" size=17 data-bind="options: columns, optionsText: 'columnName'"></select>
 
 						<!-- /ko -->
 					</div>
@@ -158,7 +180,7 @@
 	
 	
 				<button class="btn btn-primary pull-right" style="margin-top: 10pt; margin-bottom: 10pt" data-bind="click: run">Run</button>
-				<button class="btn btn-info pull-right" style="margin-top: 10pt; margin-bottom: 10pt; margin-right: 5pt;" data-toggle="modal" data-target="#myModal">Save</button>
+				<button class="btn btn-warning pull-right" style="margin-top: 10pt; margin-bottom: 10pt; margin-right: 5pt;" data-toggle="modal" data-target="#myModal">Save</button>
 				
 				<div>
 					<!-- ko with: queryRestultModel -->
