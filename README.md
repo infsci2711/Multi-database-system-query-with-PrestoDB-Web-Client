@@ -5,6 +5,8 @@ Multi-database system query with PrestoDB Web Client
 contains restBaseurl which is used in queryViewModel.js
 Change the url to 127.0.0.1 when you want to run in localhost
 
+also contains metaStoreGetDataSourcesURL to get database meta info from MetaStore project
+
 #queryViewModel.js 
 get query from index.html and use restFul to put query to QueryRestService.java(the important java you should look) in multidbsqueryserverapi
 and get response 
