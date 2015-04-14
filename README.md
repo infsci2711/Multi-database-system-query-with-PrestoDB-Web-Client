@@ -11,3 +11,6 @@ and get response
 
 #bootstrap.min.js; jquery-2.1.3.min.js;knockout-3.2.0.js
 you can treat them as libraries.
+
+#datasourcesView.js 
+get selected database from index.html and use restFul to get database info from  metaStoreGetDataSourcesURL and return tables and columns info.
