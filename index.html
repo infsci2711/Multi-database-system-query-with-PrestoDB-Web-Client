@@ -14,7 +14,12 @@
 		<div class="col-md-12">
 
 			<div class="page-header">
-			  <h1>This is INFSCI 2711 Query project <br/><small>(backed by PrestoDB)</small></h1>
+			  <div class="col-sm-4">
+			  	<img src="img/questo-1.png" class="img-responsive" alt="Chania">
+			  </div>
+			  <div class="col-sm-8">
+			  	<h1>This is INFSCI 2711 Query project <br/><small>(backed by PrestoDB)</small></h1>
+			  </div>
 			</div>
 
 			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -96,8 +101,10 @@
 					</div>
 				</div>
 			</div>
-
-			<div id = "datasourcesContainer">
+			<button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#datasourcesContainer">
+				Show Datasources
+			</button>
+			<div id = "datasourcesContainer" class="collapse out">
 				<div class="row">
 					<div class="col-md-2">
 						<select class="form-control"  size=16 data-bind="options: datasources, optionsText: 'databaseName', value: selectedDatasource"></select>
@@ -107,7 +114,7 @@
 
 					<!-- ko with: selectedDatasource -->
 
-					<div class="col-md-6">
+					<div class="col-md-4">
 						<table class="table table-hover">
 							<tr>
 								<td>Database ID</td>
@@ -154,11 +161,11 @@
 
 					<!-- ko with: selectedDatasource -->
 
-					<div class="col-md-2">
+					<div class="col-md-3">
 						
 						<select class="form-control" size=16 data-bind="options: tables, optionsText: 'tableName', value: selectedTable"></select>
 					</div>
-					<div class="col-md-2">
+					<div class="col-md-3">
 						<!-- ko with: selectedTable -->
 						<select class="form-control" size=16 data-bind="options: columns, optionsText: 'columnName'"></select>
 
