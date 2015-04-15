@@ -42,6 +42,7 @@ function DatasourcesModel() {
                         type: 'GET',
                         dataType: 'json',
                         success: function(data) {
+                            self.datasources.removeAll();
                            processDatasources(self, data);
                         },
                         error: function(data) {
