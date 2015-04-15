@@ -45,7 +45,7 @@ function DatasourcesModel() {
                            processDatasources(self, data);
                         },
                         error: function(data) {
-                           alert("Error");
+                           alert("Failed to fetch datasource information from Metastore.");
                         }
                     });
 	};

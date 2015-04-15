@@ -95,77 +95,80 @@
 					</div>
 				</div>
 			</div>
-			<button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#datasourcesContainer" 
-				style="margin-bottom: 10pt;">Show Datasources</button>
-			<div id = "datasourcesContainer" class="collapse out">
-				<div class="row">
-					<div class="col-md-2">
-						<select class="form-control"  size=16 data-bind="options: datasources, optionsText: 'databaseName', value: selectedDatasource"></select>
+			<div id = "datasourcesContainer">
+				<button type="button" class="btn btn-primary pull-left" data-toggle="collapse" data-target="#datasourcesViewer" 
+					style="margin-bottom: 5pt;">Show Datasources</button>
+				<button type="button" class="btn btn-success pull-left" style="margin-bottom: 5pt;" 
+					data-bind="click: getDatasources">Refresh</button>
+				<div id="datasourcesViewer" class="collapse out">
+					<div class="row">
 
-						
-					</div>
+						<div class="col-md-2">
+							<select class="form-control"  size=16 data-bind="options: datasources, optionsText: 'databaseName', value: selectedDatasource"></select>						
+						</div>
 
-					<!-- ko with: selectedDatasource -->
+						<!-- ko with: selectedDatasource -->
 
-					<div class="col-md-4">
-						<table class="table table-hover">
-							<tr>
-								<td>Database ID</td>
-								<td  data-bind="text: did"></span></td>
-							<tr/>
-							<tr>
-								<td>IP</td>
-								<td  data-bind="text: ip"></span></td>
-							<tr/>
-							<tr>
-								<td>Port</td>
-								<td  data-bind="text: port"></span></td>
-							<tr/>
-							<tr>
-								<td>Database Name</td>
-								<td  data-bind="text: databaseName"></span></td>
-							<tr/>
-							<!--
-							<tr>
-								<td>username</td>
-								<td  data-bind="text: username"></span></td>
-							<tr/>
-							<tr>
-								<td>password</td>
-								<td  data-bind="text: password"></span></td>
-							<tr/>
-						-->
-							<tr>
-								<td>Database Type</td>
-								<td  data-bind="text: dbType"></span></td>
-							<tr/>
-							<tr>
-								<td>Title</td>
-								<td  data-bind="text: title"></span></td>
-							<tr/>
-							<tr>
-								<td>Description</td>
-								<td  data-bind="text: description"></span></td>
-							<tr/>							
-						</table>
-					</div>
+						<div class="col-md-4">
+							<table class="table table-hover">
+								<tr>
+									<td>Database ID</td>
+									<td  data-bind="text: did"></span></td>
+								<tr/>
+								<tr>
+									<td>IP</td>
+									<td  data-bind="text: ip"></span></td>
+								<tr/>
+								<tr>
+									<td>Port</td>
+									<td  data-bind="text: port"></span></td>
+								<tr/>
+								<tr>
+									<td>Database Name</td>
+									<td  data-bind="text: databaseName"></span></td>
+								<tr/>
+								<!--
+								<tr>
+									<td>username</td>
+									<td  data-bind="text: username"></span></td>
+								<tr/>
+								<tr>
+									<td>password</td>
+									<td  data-bind="text: password"></span></td>
+								<tr/>
+							-->
+								<tr>
+									<td>Database Type</td>
+									<td  data-bind="text: dbType"></span></td>
+								<tr/>
+								<tr>
+									<td>Title</td>
+									<td  data-bind="text: title"></span></td>
+								<tr/>
+								<tr>
+									<td>Description</td>
+									<td  data-bind="text: description"></span></td>
+								<tr/>							
+							</table>
+						</div>
 
-					<!-- /ko -->
+						<!-- /ko -->
 
-					<!-- ko with: selectedDatasource -->
+						<!-- ko with: selectedDatasource -->
 
-					<div class="col-md-3">
-						
-						<select class="form-control" size=16 data-bind="options: tables, optionsText: 'tableName', value: selectedTable"></select>
-					</div>
-					<div class="col-md-3">
-						<!-- ko with: selectedTable -->
-						<select class="form-control" size=16 data-bind="options: columns, optionsText: 'columnName'"></select>
+						<div class="col-md-3">
+							
+							<select class="form-control" size=16 data-bind="options: tables, optionsText: 'tableName', value: selectedTable"></select>
+						</div>
+						<div class="col-md-3">
+							<!-- ko with: selectedTable -->
+							<select class="form-control" size=16 data-bind="options: columns, optionsText: 'columnName'"></select>
+
+							<!-- /ko -->
+						</div>
 
 						<!-- /ko -->
 					</div>
-
-					<!-- /ko -->
 				</div>
 			</div>
 
