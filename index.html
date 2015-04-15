@@ -96,10 +96,35 @@
 				</div>
 			</div>
 			<div id = "datasourcesContainer">
+				<div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content" id="modal-contents">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+								<h4 class="modal-title" id="myModalLabel">How to use it?</h4>
+							</div>
+							<div class="modal-body">
+								    	<h5>MultiDBs System Users:</h5>
+										<p>select [expression (as alias)] from [did.table (alias)] [where] [group by]</p>
+										<h5>For Presto Users:</h5>
+										<p>1. show catalogs</p>
+										<p>2. show schemas from [catalog]</p>
+										<p>3. show tables from [catalog.schema]</p>
+										<p>4. show columns from [catalog.schema.table]</p>
+										<p>5. select [expression (as alias)] from [catalog.schema.table (alias)]<br/>
+											[where] [group by]</p>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">close</button>
+							</div>
+						</div>
+					</div>
+				</div>
 				<button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#datasourcesViewer" 
 					style="margin-bottom: 5pt;">Show Datasources</button>
 				<button type="button" class="btn btn-success" style="margin-bottom: 5pt; margin-left: 10pt;" 
 					data-bind="click: getDatasources">Refresh</button>
+				<button class="btn btn-info pull-right" style="margin-bottom: 5pt; margin-right: 5pt;" data-toggle="modal" data-target="#infoModal">Help</button>
 				<div id="datasourcesViewer" class="collapse out">
 					<div class="row">
 
