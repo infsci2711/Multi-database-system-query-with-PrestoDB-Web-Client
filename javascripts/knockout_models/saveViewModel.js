@@ -25,7 +25,7 @@ debugger;
                         success: function(data) {
                             //console.log(data);
                             //self.queryRestultModel(new QueryResultModel(data));
-                            alert("yes");
+                            alert("successfully saved the table");
                             //debugger;
                         },
                         error: function(data) {
